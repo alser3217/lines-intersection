@@ -176,15 +176,16 @@ class AVLTree():
 
         return node
 
-# myTree = AVLTree()
-# root = None
- 
-# root = myTree.insert(root, 10)
-# root = myTree.insert(root, 20)
-# #root = myTree.insert(root, 30)
+if __name__ == "__main__":
 
-# root = myTree.delete(root, 10)
+    myTree = AVLTree()
+    root = None
+    
+    root = myTree.insert(root, 10)
+    root = myTree.insert(root, 20)
 
-# root = myTree.insert(root, 30)
+    root = myTree.delete(root, 10)
 
-# myTree.DFS_traversal(root)
+    root = myTree.insert(root, 30)
+
+    myTree.DFS_traversal(root)

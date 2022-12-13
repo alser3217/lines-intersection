@@ -57,16 +57,32 @@ class Line():
         else:
             return False
 
+    def __le__(self, line):
+
+        if self.y1 <= line.y1:
+            return True  
+        else:
+            return False
+
     def split(self):
 
         return Point(self.x1, self.y1, self.number, 0, self), Point(self.x2, self.y2, self.number, 1, self)
 
-def sweep_line(E, mode):
+def sweep_line(E, mode, lines=None):
 
     E.sort()
     root = None
 
-    if mode:
+    if mode == 2:
+        for i in range(len(lines) - 1):
+            j = i + 1
+            line1 = LineString([(lines[i].x1, lines[i].y1), (lines[i].x2, lines[i].y2)])
+            for k in range(j, len(lines)):
+                line2 = LineString([(lines[k].x1, lines[k].y1), (lines[k].x2, lines[k].y2)])
+                if line1.intersects(line2):
+                    return f'Найдена пара пересекающихся отрезков: {lines[i].number}, {lines[j].number}'
+        return 'Пересекающихся отрезков не найдено'
+    elif mode == 1:
         tree = AVLTree()
         for elem in E:
             if elem.ptype == 0:

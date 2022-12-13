@@ -678,49 +678,4 @@ if __name__ == '__main__':
     for elem in data:
         root = tree.insert(root, elem)
 
-
-    #root = tree.delete(root, 13)
-    # root = tree.delete(root, 12)
-
-    # root = tree.insert(root, 10)
-    # root = tree.insert(root, 20)
-    # root = tree.insert(root, 30)
-    # root = tree.insert(root, 40)
-    # root = tree.insert(root, 50)
-    # root = tree.insert(root, 60)
-    # root = tree.insert(root, 70)
-    # root = tree.insert(root, 80)
-    # root = tree.insert(root, 90)
-    # root = tree.insert(root, 100)
-    # root = tree.insert(root, 110)
-    # root = tree.insert(root, 120)
-    # root = tree.insert(root, 130)
-    # root = tree.insert(root, 140)
-    # root = tree.insert(root, 150)
-    # root = tree.insert(root, 5)
-    # root = tree.insert(root, 15)
-    # root = tree.insert(root, 25)
-    # root = tree.insert(root, 8)
-
-    # arr = []
     tree.DFS_traversal(root)
-
-    # print(tree.search(root, 8).keys)
-
-    #data.sort()
-    #print(sorted(data))
-
-    # for elem in sorted(data):
-    #     print(f'elem: {elem}, next: {tree.next(tree.search(root, elem), elem)}')
-
-    # for elem in sorted(data):
-    #     print(f'elem: {elem}, prev: {tree.previous(tree.search(root, elem), elem)}')
-
-    #print(tree.next(root, 5))
-    # print(tree.previous(root, 150))
-
-    # root = tree.delete(root, 5)
-    # root = tree.delete(root, 8)
-    # root = tree.delete(root, 10)
-    # root = tree.delete(root, 30)
-    # root = tree.delete(root, 15)
