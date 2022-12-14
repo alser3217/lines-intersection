@@ -134,6 +134,8 @@ def test():
     naive_time = []
     n = []
 
+    length = []
+
     if args.experiment == 1:
 
         N = 10001
@@ -169,14 +171,14 @@ def test():
             end = time.time() - start
             naive_time.append(end)
 
-            n.append(number)
-
+            n.append(number)    
         plt.plot(n, avl_time, label='avl')
         plt.plot(n, b_2_3_time, label='2-3')
         plt.plot(n, naive_time, label='naive')
         plt.legend(loc='best')
         plt.xlabel("N (количество отрезков)")
         plt.ylabel("Время (секунды)")
+        plt.title("Experiment 1. N = 1...10001, step = 100")
         plt.show()     
   
     elif args.experiment == 2:
@@ -222,6 +224,7 @@ def test():
         plt.legend(loc='best')
         plt.xlabel("k (количество первых непересекающихся отрезков)")
         plt.ylabel("Время (секунды)")
+        plt.title("Experiment 2. N = 2000, k = 1...2000, step=100")
         plt.show()
 
     elif args.experiment == 3:
@@ -265,8 +268,9 @@ def test():
         plt.plot(n, b_2_3_time, label='2-3')
         plt.plot(n, naive_time, label='naive')
         plt.legend(loc='best')
-        plt.xlabel("k (количество первых непересекающихся отрезков)")
+        plt.xlabel("N (количество отрезков)")
         plt.ylabel("Время (секунды)")
+        plt.title("Experiment 3. N = 1...1000, step = 100, r = 0.0001")        
         plt.show()
 
     elif args.experiment == 4:
@@ -274,10 +278,10 @@ def test():
         N = 1000
         r = 0
 
-        for i in range(1, 10):
+        for i in range(1, 30):
 
-            r += 0.01
-            number = i
+            r += 0.001
+            length.append(r)
             data = experiment4(N, r)
 
             Lines = []
@@ -305,14 +309,13 @@ def test():
             end = time.time() - start
             naive_time.append(end)
 
-            n.append(number)
-
-        plt.plot(n, avl_time, label='avl')
-        plt.plot(n, b_2_3_time, label='2-3')
-        plt.plot(n, naive_time, label='naive')
+        plt.plot(length, avl_time, label='avl')
+        plt.plot(length, b_2_3_time, label='2-3')
+        plt.plot(length, naive_time, label='naive')
         plt.legend(loc='best')
-        plt.xlabel("k (количество первых непересекающихся отрезков)")
+        plt.xlabel("r (длина отрезка)")
         plt.ylabel("Время (секунды)")
+        plt.title("Experiment 4. N = 1000, r = 0.001...0.03, step = 0.001")          
         plt.show()        
 
 if __name__ == "__main__":
